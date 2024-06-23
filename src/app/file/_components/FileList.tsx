@@ -1,7 +1,6 @@
 import { promises as fs } from "node:fs";
 import { resolve } from "node:path";
 import { DeleteButton } from "@/app/file/_components/DeleteButton";
-import Link from "next/link";
 
 export async function FileList() {
   const dirPath = resolve(process.cwd(), "./uploads");
@@ -13,12 +12,12 @@ export async function FileList() {
         <li key={file} className="py-4 flex justify-between">
           {file}
           <div className="flex gap-4 items-center">
-            <Link
+            <a
               href={`/file/download?file=${file}`}
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               Download
-            </Link>
+            </a>
             <DeleteButton file={file} />
           </div>
         </li>
